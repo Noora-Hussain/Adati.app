@@ -55,18 +55,14 @@ elif add_selectbox == "📋 View Habits":
 elif add_selectbox == "✅ Log Completion":
     st.header("Log Habit Completion")
     habits = Aa.get_all_habits()
+    selected_habit = st.selectbox("Select a habit", habits)
+    completion_date = st.date_input("Completion Date", datetime.date.today())
 
-    if len(habits) == 0:
-        st.warning("No habits found.")
-    else:
-        selected_habit = st.selectbox("Select a habit", habits)
-        completion_date = st.date_input("Completion Date", datetime.date.today())
-
-        if st.button("Log Completion"):
-            message = Aa.log_completion(selected_habit, completion_date)
-            st.success(message)
-            st.balloons()
-
+    if st.button("Log Completion"):
+        message = Aa.log_completion(selected_habit, completion_date)
+        st.success(message)
+        st.balloons()
+            
 elif add_selectbox == "📊 View Stats":
     st.header("Habit Statistics")
     try:
