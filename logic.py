@@ -38,6 +38,6 @@ def complete_habit(habit_name, completion_date):
 
     df = load_habits()
     df["Date"] = df["Date"].astype(str)
-    df.loc[df["Name"] == habit_name, "Date"] = str(completion_date)
+    df.loc[df["Name"] == habit_name, "Date"] = pd.to_datetime(completion_date)
     return df # Logs the completion date for a specific habit
 
