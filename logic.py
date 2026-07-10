@@ -39,5 +39,6 @@ def complete_habit(habit_name, completion_date):
     df = load_habits()
     df["Date"] = df["Date"].astype(str)
     df.to_csv("habits.csv", index=False)
+    df.loc[df["Name"] == habit_name, "Date"] = str(completion_date)
     return df # Logs the completion date for a specific habit
 
