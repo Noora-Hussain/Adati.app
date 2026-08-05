@@ -3,11 +3,13 @@ import pandas as pd
 import datetime
 import logic as Aa
 
-
 st.title("Adati🎯") # Set the main title of the app
 st.title("Adati Habit Tracker") 
 
 st.image("Aadit.jpg") # add image 
+
+quote = Aa.get_ai_quote("Give me a tip")
+st.write(f"💡 Tip of the Day: {quote}")
 
 option = st.selectbox("HabitFlow",("Add Habit➕", "View Habits📋", "Log Completion ✅", "View Stats📊", " Edit/Remove Habits⚙️"))
 # Let the user choose an option
